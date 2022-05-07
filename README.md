@@ -6,6 +6,17 @@ Collects and stores traffic between distributed microservices from the zipkin se
 ## Architecture
 <img src="https://user-images.githubusercontent.com/17774927/167258866-35c9c281-3d63-45bf-8450-a58cca7d6672.png">
 
+## Stacks
+<div>
+  <img src="https://img.shields.io/badge/kotlin-7f5eff?style=for-the-badge&logo=kotlin&logoColor=white">
+  <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white">
+</div>
+<div>
+  <img src="https://img.shields.io/badge/apachecassandra-1287B1?style=for-the-badge&logo=apachecassandra&logoColor=white">
+  <img src="https://img.shields.io/badge/mongoDB-47A248?style=for-the-badge&logo=mongoDB&logoColor=white">
+</div>
+<img src="https://user-images.githubusercontent.com/17774927/167259532-1348dc95-ed62-4414-ab6f-6e7030deff9c.jpg" width='100px'>
+
 ## Usage
 
 1. Fire up Cassandra first.
