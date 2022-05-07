@@ -4,7 +4,7 @@ A simple microservice log tracing example with Spring Cloud, <a href="https://gi
 Collects and stores traffic between distributed microservices from the zipkin server. This helps you prevent or resolve problems quickly.
 
 ## Architecture
-<img src="https://user-images.githubusercontent.com/17774927/167255362-02e26181-92b8-4b8f-af63-00827c72f3a8.png">
+<img src="https://user-images.githubusercontent.com/17774927/167258866-35c9c281-3d63-45bf-8450-a58cca7d6672.png">
 
 ## Usage
 
