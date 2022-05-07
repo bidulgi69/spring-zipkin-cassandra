@@ -1,0 +1,45 @@
+version: '3.9'
+services:
+  # product-db
+  mongo-0:
+    image: mongo
+    ports:
+      - "27017:27017"
+    env_file:
+      - .mongo.env
+    container_name: mongo-0
+
+  # review-db
+  mongo-1:
+    image: mongo
+    ports:
+      - "27018:27017"
+    env_file:
+      - .mongo.env
+    container_name: mongo-1
+
+  # zipkin storage
+  cassandra-zipkin:
+    image: cassandra:latest
+    ports:
+      - "9042:9042"
+    environment:
+      - CASSANDRA_CLUSTER_NAME=cluster-0
+    volumes:
+      - $PWD/dockets:/var/lib
+      - $PWD/dockets/cassandra.yaml:/etc/cassandra/cassandra.yaml
+    container_name: cassandra-zipkin
+
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
+    environment:
+      - STORAGE_TYPE=cassandra3
+      - CASSANDRA_KEYSPACE=zipkin2
+      - CASSANDRA_CONTACT_POINTS=cassandra-zipkin  # default port is 9042
+      - CASSANDRA_LOCAL_DC=datacenter1
+#      - CASSANDRA_ENSURE_SCHEMA=false # default true
+    container_name: zipkin
+    depends_on:
+      - cassandra-zipkin

@@ -1,0 +1,26 @@
+encrypt:
+  key: enc-key
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: gitRepositoryUrl
+          username: gitUsername
+          password: gitPersonalAccessToken
+
+  security:
+    user:
+      name: user
+      password: password
+  config:
+    activate:
+      on-profile: native
+
+management.endpoint.health.show-details: "ALWAYS"
+management.endpoints.web.exposure.include: "*"
+
+logging:
+  level:
+    root: info

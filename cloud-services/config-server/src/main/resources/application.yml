@@ -1,0 +1,42 @@
+jasypt:
+  encryptor:
+    bean: jasyptEncryptor
+
+server:
+  port: 8888
+
+# Recommend you inject the key through the system property (for secure)
+encrypt:
+  key: enc-key
+
+spring:
+  cloud:
+
+    config:
+      server:
+        git:
+          uri: https://github.com/bidulgi69/spring-cloud-config
+          username: 'ENC(a66+iIVqaoTYBuL6Wrz68pq1V714kEWg4PHin0vt5/E9kMfLBE3sfod15pZh1Ron73ZzStzPYkt+NUw2cLescw==)'
+          password: 'ENC(lJV9Cu12Z0Tqxa1GJleJVdup4DdjLOza6fsyjn6ONtJQymOjr/laXrP1TGm+ij28dXQ9aiF89Lz13z2EPEOEbqOoWo9daLr7dXL8wwwIJqs=)'
+
+  security:
+    user:
+      name: 'ENC(JvRb1QZmLjOX1MU9v6/KmyB5fGsBCzdN6lKGCXY3XfQIMJJRbO7DsKHU3WJCfVxgPVal7w5F6aN8SnVp02d7fg==)'
+      password: 'ENC(5bZxJpJnfmVRif4XFUmZbACRmDNGBsp1yaBvVdbZUaO/1yYP2bDjSR9vFmEB3KCTw0i+R5FHySJgGmsyoQ0FzVMQKPKxVDan2QiZTIGNqog=)'
+
+management.endpoint.health.show-details: "ALWAYS"
+management.endpoints.web.exposure.include: "*"
+
+logging:
+  level:
+    root: info
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:/config-repo
