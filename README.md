@@ -13,6 +13,7 @@ Collects and stores traffic between distributed microservices from the zipkin se
         docker-compose up -d cassandra-zipkin
         
 2. Set Cassandra Schema.
+<br>The sample cql files were taken from here. <a href="https://github.com/openzipkin/zipkin/tree/master/zipkin-storage/cassandra">zipkin-storage/cassandra</a>
         
         docker exec -it cassandra-zipkin /bin/bash
         
